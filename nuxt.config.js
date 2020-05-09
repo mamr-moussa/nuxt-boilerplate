@@ -27,7 +27,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['@plugins/core'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -40,7 +40,45 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: [],
+  modules: [
+    [
+      'nuxt-i18n',
+      {
+        rootRedirect: 'en',
+        vueI18nLoader: true,
+        defaultLocale: 'en',
+        strategy: 'prefix', // 'prefix_except_default',
+        lazy: true,
+        langDir: 'lang/',
+        seo: true,
+        // parsePages: false,
+        detectBrowserLanguage: {
+          useCookie: true,
+          cookieKey: 'i18n',
+          alwaysRedirect: false,
+          fallbackLocale: 'en'
+        },
+        locales: [
+          {
+            code: 'en',
+            iso: 'en-US',
+            file: 'en-US.js',
+            name: 'English',
+            local: 'English',
+            alignment: 'left'
+          },
+          {
+            code: 'ar',
+            iso: 'ar-EG',
+            file: 'ar-EG.js',
+            name: 'Arabic',
+            local: 'العربية',
+            alignment: 'right'
+          }
+        ]
+      }
+    ]
+  ],
   /*
    ** Build configuration
    */
