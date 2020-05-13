@@ -1,3 +1,4 @@
+import env from './env.js'
 export default {
   mode: 'universal',
   /*
@@ -15,6 +16,15 @@ export default {
       }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+  },
+  env,
+  axios: {
+    // See https://github.com/nuxt-community/axios-module#options
+    baseURL: env.baseURL
+  },
+  server: {
+    port: env.port || 3000, // default: 3000
+    host: '0.0.0.0' // default: localhost
   },
   /*
    ** Customize the progress-bar color
